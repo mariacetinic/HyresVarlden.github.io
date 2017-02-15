@@ -1,6 +1,5 @@
 var sidenumber =1;
 var week =1;
-var id;
 
  $(document).ready(function(){
    $("#login").hide();
@@ -17,7 +16,7 @@ var id;
      $("#valuDate").html(date);
    });
 
-/******fadeIn page functions*********/
+/******fadeIn // fadeOut page functions*********/
 /*
 1=home
 2=login
@@ -26,8 +25,8 @@ var id;
 5=booking
 6=admin
 7=bookingStuff
-*/
 
+*/
 $('.home').click(function(){
   pageChange();
   $('#home').fadeIn(1000);
@@ -59,18 +58,17 @@ $('.booking').click(function(){
   sidenumber=5;
   });
 
-//Förberedelse ifall man skulle hinna med
+
 //   $('.admin').click(function(){
 //    pageChange();
 //    $('#admin').fadeIn(1000);
 //    sidenumber=6;
 //    });
-
-$('.bookingStuff').click(function(){
- pageChange();
- sidenumber=7;
- });
-
+//
+//   $('.bookingStuff').click(function(){
+//    pageChange();
+//    sidenumber=7;
+//    });
 /*******fadeOut function for Pages ******/
 function pageChange(){
        if (sidenumber==1) { $("#home").fadeOut(500); }
@@ -109,11 +107,10 @@ function pageChange(){
       }
     }
   $("#tabelplace").html(createBtn);
-  availableTime();
-  $(".selectedButton").click(function(){
-    id=$(this).attr("id");
 
-    var date = "";
+  $(".selectedButton").click(function(){
+    var id=$(this).attr("id");
+    var date = week;
     if (id>=11 && id<=17) {
       date += " 6-12 ";
       date += day(id,date);
@@ -126,8 +123,7 @@ function pageChange(){
       date += " 18-24 ";
       date += day(id,date);
     }
-    $("#valuDate").html(week + date);
-
+    $("#valuDate").html(date);
   });
 
   function day(id,date){
@@ -155,117 +151,6 @@ function pageChange(){
   };
 };
 
-  $(".weekbtn").click(function(){
-    weekbtnid=$(this).attr("id");
-    if (weekbtnid==="prevWeekBtn") {
-      if (week<=1) {
-          week =52
-          tableGenerator();
-      }
-      else {
-          week--;
-          tableGenerator();
-      }
-    }
-    else {
-      if (week>=52) {
-        week=1;
-        tableGenerator();
-      }
-      else {
-        week++;
-        tableGenerator();
-      }
-    }
-  });
-
-function availableTime() {
-  // $.ajax({
-  //     type:'GET',
-  //     url:"http://tvattapi.php",
-  //     dataType:'json',
-  //     data:"idnr:id",
-  //     success:function(feed) {
-  //
-  //     },
-  //     error: function(OB, text, ET){
-  //       console.log(text);
-  //       console.log(ET);
-  //     }
-  // });
-  //hämta alla tider på denna veckan
-  //foreach loop som kontrollerar ifall tiden är bokad eller inte.
-
-  //var times = json.pars();
-
-    // if (true) {
-    //
-    //   $("#").removeClass("btn-danger").addClass("btn-success");
-    // }
-    // else {
-    //   $("#").removeClass("btn-success").addClass("btn-danger");
-    // }
-}
-
-
-/*boka tvättid*/
-$("#comfirm").click(function(){
-  console.log(week +" "+ id);
-    $.ajax({
-        type: "POST",
-        //the url where you want to sent the userName and password to
-        url: "bokatvattidapi.php", //en annan URL ska det vara
-        dataType: 'json',
-        //json object to sent to the authentication url
-        data: {"idnr": id },
-        success: function (data) {
-          console.log(data.id);
-          console.log(data);
-          if (data.idnr===true) {
-            console.log();
-                $("#"+id).removeClass("btn-success").addClass("btn-danger");//ändra till knappen med det id till btn-danger class i stället för btn success;
-          }
-          else {
-            alert("This time is taken");
-          }
-
-        },
-        error: function(OB, text, ET){
-          console.log(text);
-          console.log(ET);
-        }
-    });
-});
-
-$("#delete").click(function(){
-  console.log(week +" "+ id);
-    $.ajax({
-        type: "POST",
-        //the url where you want to sent the userName and password to
-        url: "deletetvattidapi.php", //en annan URL ska det vara
-        dataType: 'json',
-        //json object to sent to the authentication url
-        data: {"idnr": id },
-        success: function (data) {
-          console.log(data.id);
-          console.log(data);
-          if (data.idnr===true) {
-            console.log("Time removed");
-                $("#"+id).removeClass("btn-danger").addClass("btn-success");//ändra till knappen med det id till btn-danger class i stället för btn success;
-          }
-          else {
-            alert("This time is taken");
-          }
-
-        },
-        error: function(OB, text, ET){
-          console.log(text);
-          console.log(ET);
-        }
-    });
-});
-
-
 /*******Img animation(Blink)***********/
      for (var i = 0; i < 5; i++) {
           $(".img-thumbnail").fadeOut(500);
@@ -273,59 +158,40 @@ $("#delete").click(function(){
         };
 
 /***************Login*****************/
-$body = $("body");
-function loadingScreen(){
-  $(document).on({
-    ajaxStart: function() { $body.addClass("loading");},
-    ajaxStop: function() { $body.removeClass("loading");}
-  });
-};
-
        //event handler for submit button
        $(".btn-login").click(function (e) {
          e.preventDefault();
-         loadingScreen();
            //collect userName and password entered by users
-           var user = $(".username").val();
-           var pwd = $(".password").val();
+           var userName = $("#username").val();
+           var password = $("#password").val();
+
            //call the authenticate function
-           authenticate(user, pwd);
+           authenticate(userName, password);
        });
 
    //authenticate function to make ajax call
-   function authenticate(user, pwd) {
+   function authenticate(userName, password) {
 
-       $.ajax({
+       $.ajax
+       ({
            type: "POST",
            //the url where you want to sent the userName and password to
-           url: "api.php", //ändra url
-           dataType: 'json',
+           url: "api.php",
+           //dataType: 'json',
+           async: false,
            //json object to sent to the authentication url
-           data: {user : user , pwd : pwd},
+           data: '{"userName": "' + userName + '", "password" : "' + password + '"}',
            success: function (data) {
-             if ((data.user === true)&&(data.pwd === true)) {
+
                $("#login").fadeOut(500);
                $("#minsida").fadeIn(1000);
                sidenumber=3;
-             }
-             else {
-               alert("Fel Användarnamn eller Lösenord")
-             }
-                        },
+               console.log(data);
+           },
            error: function(OB, text, ET){
              console.log(text);
              console.log(ET);
            }
        })
-     };
-
-     /***********Logout**********************/
-     $(".logout").click(function() {
-            $.ajax({
-                url: 'http://logout.php',
-                success: function(data){
-                    window.location.href = data;
-                }
-            });
-        });
-   });//document ready end tag
+     }
+   });

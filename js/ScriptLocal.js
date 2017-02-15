@@ -182,7 +182,7 @@ function pageChange(){
 function availableTime() {
   // $.ajax({
   //     type:'GET',
-  //     url:"http://tvattapi.php",
+  //     url:"tvattapi.php",
   //     dataType:'json',
   //     data:"idnr:id",
   //     success:function(feed) {
@@ -214,7 +214,7 @@ $("#comfirm").click(function(){
     $.ajax({
         type: "POST",
         //the url where you want to sent the userName and password to
-        url: "bokatvattidapi.php", //en annan URL ska det vara
+        url: "http://localhost/hyresvarlden/bokatvattidapi.php", //en annan URL ska det vara
         dataType: 'json',
         //json object to sent to the authentication url
         data: {"idnr": id },
@@ -242,7 +242,7 @@ $("#delete").click(function(){
     $.ajax({
         type: "POST",
         //the url where you want to sent the userName and password to
-        url: "deletetvattidapi.php", //en annan URL ska det vara
+        url: "http://localhost/hyresvarlden/deletetvattidapi.php", //en annan URL ska det vara
         dataType: 'json',
         //json object to sent to the authentication url
         data: {"idnr": id },
@@ -298,7 +298,7 @@ function loadingScreen(){
        $.ajax({
            type: "POST",
            //the url where you want to sent the userName and password to
-           url: "api.php", //ändra url
+           url: "http://localhost/HyresVarlden/api.php", //ändra url
            dataType: 'json',
            //json object to sent to the authentication url
            data: {user : user , pwd : pwd},
@@ -322,7 +322,7 @@ function loadingScreen(){
      /***********Logout**********************/
      $(".logout").click(function() {
             $.ajax({
-                url: 'http://logout.php',
+                url: 'logout.php',
                 success: function(data){
                     window.location.href = data;
                 }

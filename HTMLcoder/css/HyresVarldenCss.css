@@ -1,32 +1,8 @@
 /*******Start sidan*******/
-*{
-  font-family: "Roboto",sans-serif,serif;
-}
-
-.modal {
-    display:    none;
-    position:   fixed;
-    z-index:    1000;
-    top:        0;
-    left:       0;
-    height:     100%;
-    width:      100%;
-    background: rgba( 255, 255, 255, .8 )
-                url('http://i.stack.imgur.com/FhHRx.gif')
-                50% 50%
-                no-repeat;
-}
-
-body.loading {
-    overflow: hidden;
-}
-
-.space{
-  margin-top: 20%;
-}
-
 footer{
   background-color: #eee;
+  margin-top: 20px;
+  padding-top: 20px;
   border: 2px solid black;
   border-bottom: 0px;
   border-top-left-radius: 10px;
@@ -41,7 +17,6 @@ footer{
   border-top-right-radius:10px;
   padding-top: 5px;
 }
-
 
 /*******Booknings sidorna*******/
 .btn.btn-success:hover{
@@ -106,9 +81,3 @@ footer{
   height: 300px;
   width: 200px;
 }
-
-@media all and (max-width:400px) {
-  h1,h2,p,footer,th,h4 {
-    font-size: 10px !important;
-  }
-};
