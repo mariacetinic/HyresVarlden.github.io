@@ -1,0 +1,111 @@
+/*******Start sidan*******/
+*{
+  font-family: "Roboto",sans-serif,serif;
+}
+
+.modal {
+    display:    none;
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .8 )
+                url('http://i.stack.imgur.com/FhHRx.gif')
+                50% 50%
+                no-repeat;
+}
+
+body.loading {
+    overflow: hidden;
+}
+
+body.loading .modal {
+    display: block;
+}
+
+.space{
+  margin-top: 10%;
+}
+
+footer{
+  background-color: #eee;
+  border: 2px solid black;
+  border-bottom: 0px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  text-align: center;
+}
+
+.extraBorder{
+  border: 2px solid #F00;
+  border-bottom: 0px;
+  border-top-left-radius:10px;
+  border-top-right-radius:10px;
+  padding-top: 5px;
+}
+
+/*******Booknings sidorna*******/
+.btn.btn-success:hover{
+    background-color: #008989;
+    border-color: #52a452 #4e9c4e #448944;
+}
+
+.bokingtable{
+  border: 1px solid #666;
+  height: 20px ;
+}
+
+.news{
+  background-color: #eee;
+  font-family: sans-serif;
+  border: 1px solid #555;
+  border-radius: 10px;
+  padding-left: 10px;
+  min-height: 500px;
+}
+
+.news > h2 {
+  text-align: center;
+  padding-left: 0px;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.border{
+  border: 2px solid #ddd;
+  border-radius: 0px 0px 20px 20px;
+}
+
+.bokningsBox{
+    padding: 20px;
+    margin-top: 30px;
+    background-color: #fff;
+    border: 1px solid #d0d0d0;
+    border-radius: 10px;
+    -webkit-box-shadow: 9px 6px 5px 9px rgba(0,0,0,0.12);
+    -moz-box-shadow: 9px 6px 5px 9px rgba(0,0,0,0.12);
+    box-shadow: 9px 6px 5px 9px rgba(0,0,0,0.12);
+}
+
+/*******login sidor*******/
+.body {
+    background-color: #f8f8f8;
+  }
+
+.wrap-login{
+  padding: 20px;
+  margin-top: 70px;
+  background-color: #fff;
+  border: 1px solid #d0d0d0;
+  -webkit-box-shadow: 9px 6px 5px 9px rgba(0,0,0,0.12);
+  -moz-box-shadow: 9px 6px 5px 9px rgba(0,0,0,0.12);
+  box-shadow: 9px 6px 5px 9px rgba(0,0,0,0.12);
+}
+
+/*******Om oss sidan*******/
+.omOssImg{
+  height: 300px;
+  width: 200px;
+}
