@@ -3,10 +3,10 @@
 session_start();
 header('Access-Control-Allow-Origin: *');
 
-$host = 'localhost';
-$db = 'hyresvarlden';
-$user = 'root';
-$password = '';
+$host = 'zocomutbildning_se_db_9';
+$db = 'mysql525.loopia.se';
+$user = 'hyresv@z164682';
+$password = '12hyr3sv4rld3n67';
 $charset = 'utf8';
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
 $options = [ PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
