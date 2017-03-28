@@ -36,4 +36,3 @@ else {
 
 echo json_encode($result);
 
-?>

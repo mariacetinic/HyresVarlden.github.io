@@ -1,5 +1,5 @@
 <?php
-
+//denna filen gäller ej för projektet.
 $host = 'localhost'; 
 $db = 'hyresvarlden';
 $user = 'root';
