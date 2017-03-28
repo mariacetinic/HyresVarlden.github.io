@@ -1,5 +1,6 @@
 <?php
 //en kommentar för att se om git ger respond
+// en annan kommentar
 session_start();
 header('Access-Control-Allow-Origin: *');
 
