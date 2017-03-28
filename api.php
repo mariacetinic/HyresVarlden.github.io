@@ -2,18 +2,9 @@
 //en kommentar för att se om git ger respond
 
 session_start();
-header('Access-Control-Allow-Origin: *');
+//header('Access-Control-Allow-Origin: *'); 
+require("config.php");
 
-$host = 'mysql525.loopia.se';
-$db = 'zocomutbildning_se_db_9';
-$user = 'hyresv@z164682';
-$password = '12hyr3sv4rld3n67';
-$charset = 'utf8';
-$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
-$options = [ PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-			  PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-			  PDO::ATTR_EMULATE_PREPARES   => false  ];
-$pdo = new PDO($dsn, $user, $password, $options);
 
 $user = $_POST['user'];
 $pwd = $_POST['pwd'];
