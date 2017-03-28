@@ -1,10 +1,10 @@
 <?php
-
+//en kommentar för att se om git ger respond
 session_start();
 header('Access-Control-Allow-Origin: *');
 
-$host = 'zocomutbildning_se_db_9';
-$db = 'mysql525.loopia.se';
+$host = 'mysql525.loopia.se';
+$db = 'zocomutbildning_se_db_9';
 $user = 'hyresv@z164682';
 $password = '12hyr3sv4rld3n67';
 $charset = 'utf8';
