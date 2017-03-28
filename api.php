@@ -24,11 +24,11 @@ $statement->execute(array(':user' => $user, ':pwd' => $pwd));
 
 $row = $statement->fetch(PDO::FETCH_ASSOC);
 
-$resultat = [];
+$result = [];
 
 if (!is_null($row['ID'])) {
 	$_SESSION['ID'] = $row['ID'];
-	$resultat = [
+	$result = [
 		"user" => true,
 		"pwd" => true
 	];
@@ -36,13 +36,13 @@ if (!is_null($row['ID'])) {
 
 else {
 
-	$resultat = [
+	$result = [
 		"user" => false,
 		"pwd" => false
 	];
 
 }
 
-echo json_encode($resultat);
+echo json_encode($result);
 
 ?>
