@@ -5,7 +5,6 @@ session_start();
 //header('Access-Control-Allow-Origin: *'); 
 require("config.php");
 
-
 $user = $_POST['user'];
 $pwd = $_POST['pwd'];
 
@@ -15,7 +14,10 @@ $statement->execute(array(':user' => $user, ':pwd' => $pwd));
 
 $row = $statement->fetch(PDO::FETCH_ASSOC);
 
-$result = [];
+$result = [
+		"user" => false,
+		"pwd" => false
+	];
 
 if (!is_null($row['ID'])) {
 	$_SESSION['ID'] = $row['ID'];
@@ -23,15 +25,6 @@ if (!is_null($row['ID'])) {
 		"user" => true,
 		"pwd" => true
 	];
-}
-
-else {
-
-	$result = [
-		"user" => false,
-		"pwd" => false
-	];
-
 }
 
 echo json_encode($result);
