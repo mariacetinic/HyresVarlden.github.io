@@ -1,5 +1,4 @@
 <?php
-//en kommentar för att se om git ger respond
 
 session_start();
 //header('Access-Control-Allow-Origin: *'); 
