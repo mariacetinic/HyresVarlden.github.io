@@ -1,5 +1,5 @@
 <?php
-
+//kommentar
 $host = 'mysql525.loopia.se';
 $db = 'zocomutbildning_se_db_9';
 $user = 'hyresv@z164682';
